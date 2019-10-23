@@ -1,0 +1,15 @@
+.barra{
+    background: #324a5f;
+    color: #FBFFFE;
+    height: 60px;
+}
+.selector{
+    border: none;
+    background: #324A5F;
+    color: #FBFFFE;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    appearance: none;
+}

@@ -1,0 +1,9 @@
+.cardBox {
+  background: #dee5e5;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  /* min-height: 400px; */
+}
+.cardBox .title {
+  background: #fbfffe;
+  min-height: 50px;
+}
