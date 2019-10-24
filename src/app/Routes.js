@@ -6,7 +6,7 @@ import CheckLogin from './context/auth/CheckLogin';
 export default (props) => {
     return (
         <>
-            <CheckLogin {...props} />
+            <CheckLogin history={props.history} />
             <Route exact path="/" component={Aeropuerto}/>
             <Route path="/login" component={Login} />
         </>

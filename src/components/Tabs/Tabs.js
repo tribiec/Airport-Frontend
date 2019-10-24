@@ -1,24 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Row, Col, TabPane, Table } from 'reactstrap';
-import { Context } from '../../providers/ContextProvider';
+import { useStateValue } from '../../providers/ContextProvider';
 import { StatusVuelos } from '../../providers/StatusVuelos';
 import './Tabs.css';
 const Llegadas = (props) => {       
-    const [context,dispatch] = useContext(Context);
-    const getLlegadas = () => {
-        if (context.app.vuelos == null) {
-            return [];
-        }else{
+    const [context,dispatch] = useStateValue();
+
+    const getVuelos = () => {
             return (props.tipo === "llegadas") ? context.app.vuelos.llegadas : context.app.vuelos.salidas;
-        }
-    }
+    };
+
     const handleAgenciaClick = (evt) => {
-        dispatch({ user: context.user, app: { ...context.app, agencia_actual: context.app.agencias[evt.target.id]}});
-        document.querySelector("#agencia").value = evt.target.id;
-    }
+        alert(`Para ir a la Agencia "${evt.target.getAttribute('agencia_nombre')}", debes seleccionar el Aeropuerto "${evt.target.getAttribute('nombre')}" en el selector de Aeropuertos y luego la Agencia`);
+    };
+
     const handleAirportClick = (evt) => {
 
-    }
+    };
+
     return (
         <TabPane tabId={(props.tipo === "llegadas" ? "1" : "2")}>
             <Row>
@@ -36,7 +35,7 @@ const Llegadas = (props) => {
                         </thead>
                         <tbody>
                             {
-                                getLlegadas().map((vuelo, key) => {
+                                getVuelos().map((vuelo, key) => {
                                     return (
                                         <tr key={key}>
                                             <th scope="row">{vuelo.id_vuelo}</th>
@@ -44,7 +43,7 @@ const Llegadas = (props) => {
                                             <td>{vuelo.time}</td>
                                             <td>Estelar</td>
                                             <td>{StatusVuelos(vuelo.id_status)}</td>
-                                            <td id={vuelo.id_agencia} onClick={handleAgenciaClick} className="">{vuelo.agencia_nombre}</td>
+                                            <td nombre={(props.tipo === "llegadas") ? vuelo.origen_nombre : vuelo.destino_nombre} agencia_nombre={vuelo.agencia_nombre} id_agencia={vuelo.id_agencia} id={(props.tipo === "llegadas") ? vuelo.origen_id : vuelo.destino_id} onClick={handleAgenciaClick} className="">{vuelo.agencia_nombre}</td>
                                         </tr>
                                     )
                                 })

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useCargarVuelos } from "../../../app/hooks/useCargarVuelos";
+// import { useCargarVuelos } from "../../../app/hooks/useCargarVuelosAgencia";
 import { Table } from "reactstrap";
 import { CardBox } from "../../../components/Card/CardBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +8,8 @@ import "./Agencias.css";
 
 const Agencias = ({ agencia, nombre }) => {
   const [context] = useContext(Context);
-  const destinos = useCargarVuelos(agencia.id_agencia);
+  // const destinos = useCargarVuelos(agencia.id_agencia);
+  const destinos = [];
   return (
     <div className="vuelos m-5">
       <div className="d-flex justify-content-center align-items-center barra">

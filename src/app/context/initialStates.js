@@ -13,12 +13,17 @@ export const userState = () => {
 export const appState = () => {
     const app = {
         logged: ((JSON.parse(localStorage.getItem('user'))) ? true : false),
-        aeropuertos: null,
+        aeropuertos: [],
         aeropuerto_actual: null,
-        agencias: null,
+        agencias: [],
         agencia_actual: null,
         location: null,
-        vuelos: null
+        vuelos: {
+            llegadas: [],
+            salidas: []
+        },
+        selector_aero: 0,
+        selector_agencia: 0
     }
     return {...app};
 }

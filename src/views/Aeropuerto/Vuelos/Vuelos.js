@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Vuelos.css';
 const Vuelos = ({ aeropuerto }) => {
     const [activeTab, setActiveTab] = useState('1');
+
     const toggle = tab => {
         if (activeTab !== tab) setActiveTab(tab);
     }
+    
     return (
         <div className="vuelos m-5">
             <div className="d-flex justify-content-center align-items-center barra">

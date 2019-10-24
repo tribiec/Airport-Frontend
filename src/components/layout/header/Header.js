@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
+import { useStateValue } from '../../../providers/ContextProvider';
 import { Link } from 'react-router-dom';
-import { Context } from '../../../providers/ContextProvider';
 import { Navbar, NavbarBrand, Col } from 'reactstrap';
-import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Header.css';
 const Header = () => {
-    const [context,] = useContext(Context);
+    const [context,] = useStateValue();
     return (
         <Navbar className="navbar-expand-lg">
             <Col md="4">

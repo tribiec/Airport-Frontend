@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../../providers/ContextProvider';
-import Fetch from '../../providers/Fetch';
+import { useStateValue } from '../../providers/ContextProvider';
 import { Container, Alert } from 'reactstrap';
 import { CardBox } from '../../components/Card/CardBox';
-import {appState} from '../../app/context/initialStates';
+import Fetch from '../../providers/Fetch';
 import './Login.css';
 export default (props) => {
-    const [, dispatch] = useContext(Context);
+    const [, dispatch] = useStateValue();
 
     const [userData, setuserData] = useState({
         correo: '',
@@ -28,28 +27,29 @@ export default (props) => {
                 return "Clave Invalida";
             default:
                 return "Falla en el sistema";
-        }
-    }
+        };
+    };
 
     const handleChange = (evt) => {
         setuserData({ ...userData, [evt.target.name]: evt.target.value })
-    }
+    };
 
     const sendData = async (evt) => {
         evt.preventDefault();
-        let resp = await Fetch.post("user/login", {correo: userData.correo.toLowerCase(), clave: userData.clave});
+        let resp = await Fetch.post("user/login", { correo: userData.correo.toLowerCase(), clave: userData.clave });
         if (resp.status === 200) {
             const user = resp.message;
             localStorage.setItem('user', JSON.stringify({ ...user }))
-            dispatch({ user, app: {...appState, aeropuerto_actual: null, logged: true} });
+            dispatch({ type: 'SET_LOGGED' });
             props.history.push('/');
         } else {
             setStatus({
                 error: true,
                 status: resp.status
-            })
-        }
-    }
+            });
+        };
+    };
+
     return (
         <Container>
             <div className="d-flex justify-content-center login">
