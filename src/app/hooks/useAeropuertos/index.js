@@ -1,13 +1,8 @@
-import { useState } from 'react';
 import { useStateValue } from '../../../providers/ContextProvider';
 import Distance from '../../../providers/Distance';
 import Fetch from '../../../providers/Fetch';
-import { useAgencia } from '../useAgencia';
-import { useVuelos } from '../useVuelos';
 const useAeropuertos = () => {
     const [, dispatch] = useStateValue();
-    const getAgencias = useAgencia();
-    const getVuelos = useVuelos();
 
     const getAeropuertos = async () => {
         let aeropuertos = await Fetch.get(`aeropuertos`);

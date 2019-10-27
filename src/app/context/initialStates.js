@@ -2,7 +2,7 @@ export const userState = () => {
     const user = {
     nombre: null,
     apellido: null,
-    email: null,
+    correo: null,
     id: null,
     token: null,
     super_user: null

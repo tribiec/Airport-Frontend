@@ -23,7 +23,7 @@ const Aeropuerto = (props) => {
             const id = context.app.aeropuerto_actual.id_aeropuerto;
             getAgencias(id);
             getVuelos(id);
-        }
+        };
     }, [context.app.aeropuerto_actual]);
 
     const handleChangeAiport = (evt) => {

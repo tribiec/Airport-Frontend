@@ -17,7 +17,7 @@ export const ContextProvider = ({ children }) => {
             case 'SET_AGENCIA':
                 return { ...state, app: { ...state.app, agencia_actual: (action.agencia || null) } };
             case 'SET_LOGGED':
-                return { ...state, app: { ...state.app, logged: true } };
+                return {user: action.user, app: { ...state.app, logged: true } };
             case 'RESET_STATE':
                 return { user: userState(), app: appState() };
             case 'SET_VUELOS':

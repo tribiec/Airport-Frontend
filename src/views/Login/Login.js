@@ -40,7 +40,7 @@ export default (props) => {
         if (resp.status === 200) {
             const user = resp.message;
             localStorage.setItem('user', JSON.stringify({ ...user }))
-            dispatch({ type: 'SET_LOGGED' });
+            dispatch({ type: 'SET_LOGGED', user });
             props.history.push('/');
         } else {
             setStatus({

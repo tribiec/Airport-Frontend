@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useStateValue } from '../../../providers/ContextProvider';
 import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Col } from 'reactstrap';
