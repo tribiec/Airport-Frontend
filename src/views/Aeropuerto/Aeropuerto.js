@@ -13,16 +13,22 @@ const Aeropuerto = (props) => {
     const getAeropuertos = useAeropuertos();
     const getAgencias = useAgencia();
     const getVuelos = useVuelos();
-
+    
     useEffect(() => {
         getAeropuertos();
     }, []);
 
+    useEffect(() => {
+        if(context.app.aeropuerto_actual != null){
+            const id = context.app.aeropuerto_actual.id_aeropuerto;
+            getAgencias(id);
+            getVuelos(id);
+        }
+    }, [context.app.aeropuerto_actual]);
+
     const handleChangeAiport = (evt) => {
-        const target = { id: evt.target.value, icao: evt.target.id };
+        const target = { id: evt.target.getAttribute('data-key'), icao: evt.target.id };
         dispatch({ type: 'SET_AEROPUERTO', aeropuerto: context.app.aeropuertos[target.id] });
-        getAgencias(target.icao);
-        getVuelos(target.icao);
     };
 
     const handleChangeAgency = (evt) => {
@@ -38,13 +44,17 @@ const Aeropuerto = (props) => {
         dispatch({ type: 'SET_SELECTOR_AGENCIA', selector: evt.target.value})
     }
 
+    const show = () => {
+        console.log(context);
+    }
+
     return (
         <>
             <div className="w-100 pl-5 barra">
                 <div className="w-50 d-flex flex-row align-items-center">
-                    <span className="text-uppercase mr-2" style={{ lineHeight: "60px" }}><FontAwesomeIcon icon="plane" /> aeropuerto</span>
+                    <span className="text-uppercase mr-2" style={{ lineHeight: "60px" }}><FontAwesomeIcon icon="plane" /> aeropuerto <span onClick={show}>Click</span></span>
                     <select className="form-control selector w-25" id="aeropuerto" name="aeropuerto" value={context.app.selector_aero} onChange={handleSelectorAero}>
-                        {context.app.aeropuertos.map((aeropuerto, key) => { return <option key={key} id={aeropuerto.id_aeropuerto} value={aeropuerto.id_aeropuerto} onClick={handleChangeAiport}>{aeropuerto.nombre} ({aeropuerto.ciudad})</option> })}
+                        {context.app.aeropuertos.map((aeropuerto, key) => { return <option data-key={key} key={key} id={aeropuerto.id_aeropuerto} value={aeropuerto.id_aeropuerto} onClick={handleChangeAiport}>{aeropuerto.nombre} ({aeropuerto.ciudad})</option> })}
                     </select>
                     <span className="text-uppercase mx-2" style={{ lineHeight: "60px" }}><FontAwesomeIcon icon="building" /> agencia</span>
                     <select className="form-control selector w-25" id="agencia" name="agencia" value={context.app.selector_agencia} onChange={handleSelectorAgencia}>

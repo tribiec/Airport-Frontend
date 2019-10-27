@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useStateValue } from '../../../providers/ContextProvider';
 import Distance from '../../../providers/Distance';
 import Fetch from '../../../providers/Fetch';
@@ -32,9 +33,7 @@ const useAeropuertos = () => {
                 navigator.geolocation.getCurrentPosition(handlePos);
             };
             dispatch({ type: 'SET_DATA', data: { aeropuertos: aeropuertos, aeropuerto_actual: aeropuertos[0], selector_aero: aeropuertos[0].id_aeropuerto } });
-            getAgencias(aeropuertos[0].id_aeropuerto);
-            getVuelos(aeropuertos[0].id_aeropuerto);
-        }
+        };
     };
     return getAeropuertos;
 };

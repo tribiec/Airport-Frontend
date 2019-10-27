@@ -11,7 +11,7 @@ export const ContextProvider = ({ children }) => {
             case 'SET_AEROPUERTOS':
                 return { ...state, app: { ...state.app, aeropuertos: (action.aeropuertos || []) } };
             case 'SET_AEROPUERTO':
-                return { ...state, app: { ...state.app, aeropuerto_actual: (action.aeropuerto || null) } };
+                return { ...state, app: { ...state.app, aeropuerto_actual: (action.aeropuerto || null), selector_agencia: 0, agencia_actual: null } };
             case 'SET_AGENCIAS':
                 return { ...state, app: { ...state.app, agencias: (action.agencias || []) } };
             case 'SET_AGENCIA':
