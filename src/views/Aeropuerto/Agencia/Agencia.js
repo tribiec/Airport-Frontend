@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 // import { useCargarVuelos } from "../../../app/hooks/useCargarVuelosAgencia";
 import { Table } from "reactstrap";
 import { CardBox } from "../../../components/Card/CardBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Context } from "../../../providers/ContextProvider";
-import "./Agencias.css";
+import "./Agencia.css";
 
 const Agencias = ({ agencia, nombre }) => {
-  const [context] = useContext(Context);
-  // const destinos = useCargarVuelos(agencia.id_agencia);
-  const destinos = [];
   return (
     <div className="vuelos m-5">
       <div className="d-flex justify-content-center align-items-center barra">
@@ -43,7 +39,7 @@ const Agencias = ({ agencia, nombre }) => {
                 </tr>
               </thead>
               <tbody className="font-weight-bold">
-                {Object.keys(destinos).map((destino, key) => {
+                {/* {Object.keys(destinos).map((destino, key) => {
                   const aeropuerto = context.app.aeropuertos.filter(
                     apt => apt.id_aeropuerto === destino
                   )[0];
@@ -58,7 +54,7 @@ const Agencias = ({ agencia, nombre }) => {
                       </td>
                     </tr>
                   );
-                })}
+                })} */}
               </tbody>
             </Table>
           </div>

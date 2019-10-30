@@ -14,16 +14,14 @@ export const appState = () => {
     const app = {
         logged: ((JSON.parse(localStorage.getItem('user'))) ? true : false),
         aeropuertos: [],
-        aeropuerto_actual: null,
         agencias: [],
-        agencia_actual: null,
+        selector_aeropuerto: 0,
+        selector_agencia: null,
         location: null,
         vuelos: {
             llegadas: [],
             salidas: []
-        },
-        selector_aero: 0,
-        selector_agencia: 0
-    }
+        }
+    };
     return {...app};
 }

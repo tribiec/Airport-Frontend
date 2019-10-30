@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { useStateValue } from '../../../providers/ContextProvider';
 import Distance from '../../../providers/Distance';
 import Fetch from '../../../providers/Fetch';
 const useAeropuertos = () => {
     const [, dispatch] = useStateValue();
-
+    const [aeropuerto, setAeropuerto] = useState(0);
     const getAeropuertos = async () => {
         let aeropuertos = await Fetch.get(`aeropuertos`);
         if (aeropuertos.status !== 200) {
@@ -27,9 +28,10 @@ const useAeropuertos = () => {
                 };
                 navigator.geolocation.getCurrentPosition(handlePos);
             };
-            dispatch({ type: 'SET_DATA', data: { aeropuertos: aeropuertos, aeropuerto_actual: aeropuertos[0], selector_aero: aeropuertos[0].id_aeropuerto } });
+            setAeropuerto(aeropuertos[0]);
+            dispatch({ type: 'SET_DATA', data: { aeropuertos: aeropuertos, selector_aeropuerto: aeropuertos[0].id_aeropuerto} });
         };
     };
-    return getAeropuertos;
+    return [aeropuerto,setAeropuerto,getAeropuertos];
 };
 export { useAeropuertos };

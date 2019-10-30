@@ -30,7 +30,7 @@ const Llegadas = (props) => {
                                     return (
                                         <tr key={key}>
                                             <th scope="row">{vuelo.id_vuelo}</th>
-                                            <td>{(props.tipo === "llegadas") ? `${vuelo.origen_ciudad} (${vuelo.origen_nombre})` : `${vuelo.destino_nombre} (${vuelo.destino_ciudad})`}</td>
+                                            <td>{(props.tipo === "llegadas") ? `${vuelo.origen_nombre} (${vuelo.origen_ciudad})` : `${vuelo.destino_nombre} (${vuelo.destino_ciudad})`}</td>
                                             <td>{StatusVuelos(vuelo.id_status)}</td>
                                             <td>{vuelo.time}</td>
                                             <td>{vuelo.aerolinea_nombre}</td>
