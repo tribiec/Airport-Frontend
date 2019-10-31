@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useEffect } from 'react';
 import { useStateValue } from '../../providers/ContextProvider'
 import { useAeropuertos } from '../../app/hooks/useAeropuertos';
@@ -11,7 +12,7 @@ import './Aeropuerto.css';
 const Aeropuerto = (props) => {
     const [context, dispatch] = useStateValue();
     const [aeropuerto,setAeropuerto,getAeropuerto] = useAeropuertos();
-    const getAgencias = useAgencia();
+    const [agencia,setAgencia,getAgencias] = useAgencia();
     const getVuelos = useVuelos();
 
     useEffect(() => {
@@ -30,11 +31,13 @@ const Aeropuerto = (props) => {
     const handleChangeAeropuerto = (evt) => {
         dispatch({ type: 'SET_AEROPUERTO', aeropuerto: evt.target.value});
         setAeropuerto(context.app.aeropuertos[getKey('aeropuerto',evt.target.value)]);
-    }
+    };
 
     const handleChangeAgencia = (evt) => {
         dispatch({ type: 'SET_AGENCIA', agencia: evt.target.value});
-    }
+        const _agencia = context.app.agencias.filter(a => (a.id_agencia == evt.target.value));
+        setAgencia((_agencia.length > 0) ? _agencia[0] : {});
+    };
 
     const getKey = (selector,valor) => {
         let key = null;
@@ -62,9 +65,9 @@ const Aeropuerto = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-center">
-                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia nombre={aeropuerto.nombre} agencia={context.app.agencias[getKey('agencia',context.app.selector_agencia) || 0]} />}
+                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia nombre={aeropuerto.nombre} agencia={agencia} />}
             </div>
         </>
-    )
+    );
 }
 export default Aeropuerto;

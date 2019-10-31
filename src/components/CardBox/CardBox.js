@@ -1,7 +1,6 @@
 import React from 'react';
-import './CardBox.css';
-export const CardBox = ({ title, titleAlign, opacity, children, width }) => {
-    
+import './CardBox.css'; 
+const CardBox = ({ title, titleAlign, opacity, children, width }) => {
     return (
         <div className="cardBox" style={{background: `rgba(222, 229, 229, ${(opacity || 1)})`, width: `${(width || 100)}%`}}>
             <div className="d-flex flex-column">
@@ -13,3 +12,4 @@ export const CardBox = ({ title, titleAlign, opacity, children, width }) => {
         </div>
     )
 }
+export default CardBox;
