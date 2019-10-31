@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../providers/ContextProvider';
 import { Container, Alert } from 'reactstrap';
-import { CardBox } from '../../components/Card/CardBox';
+import { CardBox } from '../../components/CardBox/CardBox';
 import Fetch from '../../providers/Fetch';
 import './Login.css';
 export default (props) => {

@@ -3,8 +3,8 @@ import { useStateValue } from '../../providers/ContextProvider'
 import { useAeropuertos } from '../../app/hooks/useAeropuertos';
 import { useAgencia } from '../../app/hooks/useAgencia';
 import { useVuelos } from '../../app/hooks/useVuelos';
-import Vuelos from '../../components/Vuelos';
-import Agencia from '../../components/Agencia';
+import Vuelos from '../../components/Vuelos/Vuelos';
+import Agencia from '../../components/Agencia/Agencia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Aeropuerto.css';
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { TabContent, Nav, NavItem, NavLink } from 'reactstrap';
-import { CardBox } from '../Card/CardBox';
+import { CardBox } from '../CardBox/CardBox';
 import Tabs from '../Tabs/Tabs';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './index.css';
+import './Vuelos.css';
 
 const Vuelos = ({ aeropuerto }) => {
     const [activeTab, setActiveTab] = useState('1');
