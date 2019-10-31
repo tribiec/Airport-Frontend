@@ -1,30 +1,31 @@
 import React, { useEffect } from 'react';
 import { useStateValue } from '../../providers/ContextProvider'
 import { useAeropuertos } from '../../app/hooks/useAeropuertos';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAgencia } from '../../app/hooks/useAgencia';
 import { useVuelos } from '../../app/hooks/useVuelos';
-import Vuelos from './Vuelos/Vuelos';
-import Agencia from './Agencia/Agencia';
+import Vuelos from '../../components/Vuelos';
+import Agencia from '../../components/Agencia';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Aeropuerto.css';
 
 const Aeropuerto = (props) => {
     const [context, dispatch] = useStateValue();
-    const [aeropuerto,setAeropuerto,getAeropuertos] = useAeropuertos();
+    const [aeropuerto,setAeropuerto,getAeropuerto] = useAeropuertos();
     const getAgencias = useAgencia();
     const getVuelos = useVuelos();
-    
-    useEffect(() => {
-        getAeropuertos();
-    }, []);
 
     useEffect(() => {
-        if(aeropuerto !== 0){
-            const id = context.app.selector_aeropuerto;
-            getAgencias(id);
-            getVuelos(id);
-        };
-    }, [context.app.selector_aeropuerto]);
+        getAeropuerto();
+        // eslint-disable-next-line
+    },[context.app.logged]); 
+
+    useEffect(() => {
+        if(context.app.selector_aeropuerto !== 0){
+            getAgencias(aeropuerto.id_aeropuerto);
+            getVuelos(aeropuerto.id_aeropuerto);
+        }
+        // eslint-disable-next-line
+    },[context.app.selector_aeropuerto]);
 
     const handleChangeAeropuerto = (evt) => {
         dispatch({ type: 'SET_AEROPUERTO', aeropuerto: evt.target.value});

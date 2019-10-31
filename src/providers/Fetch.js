@@ -10,16 +10,22 @@ class Fetch {
                 },
                 mode: "cors",
                 body
-            }).then(e => resolve(e.json()));
+            }).then(e => resolve(e.json())).catch(err => {
+                console.error("Problema en Fetch...", err);
+            });
         })
     };
 
-     get(endpoint) {
-        return  this.inicial({ method: "GET", endpoint }).then(e => (e))
+    get(endpoint) {
+        return new Promise((resolve, reject) => {
+            this.inicial({ method: "GET", endpoint }).then(e => resolve(e));
+        })
     };
 
     post(endpoint, body) {
-        return  this.inicial({ method: "POST", endpoint, body: JSON.stringify(body) }).then(e => (e))
+        return new Promise((resolve, reject) => {
+            this.inicial({ method: "POST", endpoint, body: JSON.stringify(body) }).then(e => resolve(e));
+        })
     }
 };
 

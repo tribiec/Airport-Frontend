@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { TabContent, Nav, NavItem, NavLink } from 'reactstrap';
-import { CardBox } from '../../../components/Card/CardBox';
-import Tabs from '../../../components/Tabs/Tabs';
+import { CardBox } from '../Card/CardBox';
+import Tabs from '../Tabs/Tabs';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './Vuelos.css';
+import './index.css';
+
 const Vuelos = ({ aeropuerto }) => {
     const [activeTab, setActiveTab] = useState('1');
     const toggle = tab => {

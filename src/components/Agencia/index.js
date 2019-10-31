@@ -1,9 +1,8 @@
 import React from "react";
-// import { useCargarVuelos } from "../../../app/hooks/useCargarVuelosAgencia";
 import { Table } from "reactstrap";
-import { CardBox } from "../../../components/Card/CardBox";
+import { CardBox } from "../Card/CardBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Agencia.css";
+import "./index.css";
 
 const Agencias = ({ agencia, nombre }) => {
   return (

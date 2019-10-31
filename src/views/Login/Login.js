@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../providers/ContextProvider';
 import { Container, Alert } from 'reactstrap';
@@ -6,8 +6,13 @@ import { CardBox } from '../../components/Card/CardBox';
 import Fetch from '../../providers/Fetch';
 import './Login.css';
 export default (props) => {
-    const [, dispatch] = useStateValue();
+    const [context, dispatch] = useStateValue();
 
+    useEffect(() => {
+        if(context.app.logged) props.history.push('/');
+        // eslint-disable-next-line
+    },[]);
+    
     const [userData, setuserData] = useState({
         correo: '',
         clave: ''
@@ -17,7 +22,6 @@ export default (props) => {
         error: false,
         status: 0
     });
-
 
     const errorsEnum = (error) => {
         switch (error) {

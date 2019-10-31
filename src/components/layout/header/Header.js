@@ -13,7 +13,7 @@ const Header = () => {
                     SAV - Sistema de Aeropuertos y Vuelos
                 </NavbarBrand>
             </Col>
-            <Col md="4" className="d-flex justify-content-center menu-nav">
+            <Col md="4" lg="4" className="d-flex justify-content-center menu-nav">
                 {context.app.logged ?
                     <>
                         <Link className="px-3" to="/"><FontAwesomeIcon icon="home" className="mr-2" />Home</Link> | <Link className="px-3" to="/buscar"><FontAwesomeIcon className="mr-2" icon="search" />Buscar Vuelo</Link> | <Link to="/boletos" className="px-3"><FontAwesomeIcon className="mr-2" icon="ticket-alt" />Mis Boletos</Link>
