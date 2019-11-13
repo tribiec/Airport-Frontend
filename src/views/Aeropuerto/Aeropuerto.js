@@ -9,7 +9,7 @@ import Agencia from '../../components/Agencia/Agencia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Aeropuerto.css';
 
-const Aeropuerto = (props) => {
+const Aeropuerto = () => {
     const [context, dispatch] = useStateValue();
     const [aeropuerto,setAeropuerto,getAeropuerto] = useAeropuertos();
     const [agencia,setAgencia,getAgencias] = useAgencia();
@@ -65,7 +65,7 @@ const Aeropuerto = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-center">
-                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia nombre={aeropuerto.nombre} agencia={agencia} />}
+                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia aeropuerto={aeropuerto.nombre} agencia={agencia} />}
             </div>
         </>
     );

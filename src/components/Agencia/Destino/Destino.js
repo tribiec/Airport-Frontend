@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
-const Destino = ({aeropuerto, id}) => {
+const Destino = ({aeropuerto}) => {
     return (
       <div>
         <Card>
