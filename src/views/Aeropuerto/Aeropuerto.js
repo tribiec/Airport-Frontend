@@ -49,11 +49,15 @@ const Aeropuerto = () => {
         return key;
     };
 
+    const test = () => {
+        console.log(context.app);
+    }
+
     return (
         <>
             <div className="w-100 pl-5 barra">
                 <div className="w-50 d-flex flex-row align-items-center">
-                    <span className="text-uppercase mr-2" style={{ lineHeight: "60px" }}><FontAwesomeIcon icon="plane" /> aeropuerto</span>
+                    <span className="text-uppercase mr-2" style={{ lineHeight: "60px" }}><FontAwesomeIcon icon="plane" /> aeropuerto <span onClick={test}>CLCK</span></span>
                     <select className="form-control selector w-25" id="aeropuerto" name="aeropuerto" value={context.app.selector_aeropuerto} onChange={handleChangeAeropuerto}>
                         {context.app.aeropuertos.map((apt, key) => { return <option data-key={key} key={key} id={apt.id_aeropuerto} value={apt.id_aeropuerto}>{apt.nombre} ({apt.ciudad})</option> })}
                     </select>
@@ -65,7 +69,7 @@ const Aeropuerto = () => {
                 </div>
             </div>
             <div className="d-flex justify-content-center">
-                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia aeropuerto={aeropuerto.nombre} agencia={agencia} />}
+                {(context.app.selector_agencia === null) ? <Vuelos aeropuerto={aeropuerto} /> : <Agencia aeropuerto={aeropuerto} agencia={agencia} />}
             </div>
         </>
     );

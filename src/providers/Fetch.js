@@ -1,8 +1,7 @@
 class Fetch {
     inicial({ method, body = null, endpoint }) {
         return new Promise((resolve, reject) => {
-            const { REACT_APP_API_HOST } = process.env;
-            fetch(`${REACT_APP_API_HOST}/api/${endpoint}`, {
+            fetch(`/api/${endpoint}`, {
                 method,
                 headers: {
                     'Accept': 'application/json',
