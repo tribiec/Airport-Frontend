@@ -21,7 +21,8 @@ export const appState = () => {
         vuelos: {
             llegadas: [],
             salidas: []
-        }
+        },
+        map: false
     };
     return {...app};
 }

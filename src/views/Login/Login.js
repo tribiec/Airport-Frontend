@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useStateValue } from '../../providers/ContextProvider';
 import { Container, Alert } from 'reactstrap';
 import CardBox from '../../components/CardBox/CardBox';
+import Button from '../../components/Button/Button';
 import Fetch from '../../providers/Fetch';
 import './Login.css';
 export default (props) => {
@@ -77,7 +78,7 @@ export default (props) => {
                                     <Link to='/forgot'>Olvidaste tu Clave?</Link> / <Link to='/register'>Registrarme</Link>
                                 </div>
                                 <div className="d-flex flex-fill justify-content-center align-items-center">
-                                    <button type="submit" className="pl-4 pr-4 pt-2 pb-2">Iniciar Sesion</button>
+                                    <Button>Iniciar Sesion</Button>
                                 </div>
                             </div>
 

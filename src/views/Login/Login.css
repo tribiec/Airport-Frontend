@@ -16,9 +16,3 @@ input {
 .links a{
     text-decoration: underline;
 }
-button{
-    border: none;
-    background: #324A5F;
-    border-radius: 6px;
-    color: #FFFFFF;
-}

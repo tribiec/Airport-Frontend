@@ -26,7 +26,7 @@
 //:::                                                                         :::
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-const Distance = (lat1, lon1, lat2, lon2, unit) => {
+const getDistance = (lat1, lon1, lat2, lon2, unit) => {
 	if ((lat1 === lat2) && (lon1 === lon2)) {
 		return 0;
 	}
@@ -48,4 +48,4 @@ const Distance = (lat1, lon1, lat2, lon2, unit) => {
 	}
 }
 
-export default Distance;
+export default getDistance;

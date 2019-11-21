@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useStateValue } from '../../../providers/ContextProvider';
-import Distance from '../../../providers/Distance';
+import Distance from '../../../helpers/getDistance';
 import Fetch from '../../../providers/Fetch';
 const useAeropuertos = () => {
     const [, dispatch] = useStateValue();

@@ -24,6 +24,8 @@ export const ContextProvider = ({ children }) => {
                 return { ...state, app: { ...state.app, ...action.data } };
             case 'SET_HOME':
                 return { ...state, app: { ...state.app, selector_agencia: null } };
+            case 'SET_MAP':
+                return { ...state, app: { ...state.app, map: true}};
             default:
                 console.error("Reducer, type not found...", action.type);
                 break;

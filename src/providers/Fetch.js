@@ -17,13 +17,13 @@ class Fetch {
 
     get(endpoint) {
         return new Promise((resolve, reject) => {
-            this.inicial({ method: "GET", endpoint }).then(e => resolve(e));
+            this.inicial({ method: "GET", endpoint }).then(e => resolve(e)).catch(err => reject(err));
         })
     };
 
     post(endpoint, body) {
         return new Promise((resolve, reject) => {
-            this.inicial({ method: "POST", endpoint, body: JSON.stringify(body) }).then(e => resolve(e));
+            this.inicial({ method: "POST", endpoint, body: JSON.stringify(body) }).then(e => resolve(e)).catch(err => reject(err));;
         })
     }
 };

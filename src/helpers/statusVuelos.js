@@ -1,4 +1,4 @@
-export const StatusVuelos = (status) => {
+export const statusVuelos = (status) => {
     switch (status) {
         case 101:
             return "A tiempo...";

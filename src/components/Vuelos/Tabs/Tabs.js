@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, TabPane, Table } from 'reactstrap';
-import { useStateValue } from '../../providers/ContextProvider';
-import { StatusVuelos } from '../../providers/StatusVuelos';
+import { useStateValue } from '../../../providers/ContextProvider';
+import { statusVuelos } from '../../../helpers/statusVuelos';
 import './Tabs.css';
 const Llegadas = (props) => {       
     const [context,] = useStateValue();
@@ -31,7 +31,7 @@ const Llegadas = (props) => {
                                         <tr key={key}>
                                             <th scope="row">{vuelo.id_vuelo}</th>
                                             <td>{(props.tipo === "llegadas") ? `${vuelo.origen_nombre} (${vuelo.origen_ciudad})` : `${vuelo.destino_nombre} (${vuelo.destino_ciudad})`}</td>
-                                            <td>{StatusVuelos(vuelo.id_status)}</td>
+                                            <td>{statusVuelos(vuelo.id_status)}</td>
                                             <td>{vuelo.time}</td>
                                             <td>{vuelo.aerolinea_nombre}</td>
                                         </tr>
