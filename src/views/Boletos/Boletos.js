@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStateValue } from '../../providers/ContextProvider'
+import useBoletos from '../../app/hooks/useBoletos';
 import { Table } from 'reactstrap';
 import CardBox from '../../components/CardBox/CardBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +8,11 @@ import './Boletos.css';
 
 const Boletos = () => {
     const [context, dispatch] = useStateValue();
+    const boletos = useBoletos();
+
+    useEffect(() => {
+        // console.log("desde useEffect", boletos);
+    },[])
 
     return (
         <>
